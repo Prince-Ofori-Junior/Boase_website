@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmes Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: rgb(20, 3, 3);
+            padding: 10px 20px;
+        }
+
+        .home-btn {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: rgb(20, 3, 3);
+            font-size: 1.1em;
+        }
+
+        .home-btn i {
+            margin-right: 8px;
+        }
+
+        .social-icons a {
+            color: rgb(20, 3, 3);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 1.2em;
+        }
+
+        .social-icons a:hover {
+            color: #f39c12;
+        }
+
+        /* Page Header */
+        header {
+            text-align: center;
+            padding: 150px 0;
+            background-color: #333;
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 60px;
+        }
+
+        /* Programme Section */
+        .program {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+            text-align: justify;
+            padding: 20px;
+        }
+
+        .program img {
+            width: 600px;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-left: 20px;
+        }
+
+        .program .content {
+            max-width: 600px;
+            padding: 20px;
+            color: #333;
+        }
+
+        .program h3 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #222;
+        }
+
+        .program p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        /* Alternate layout for even sections */
+        .program:nth-child(even) .content {
+            order: 1;
+        }
+
+        .program:nth-child(even) img {
+            order: 2;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+
+        footer p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar with Home Button & Social Icons -->
+    <div class="top-bar">
+        <a href="index.html" class="home-btn">
+            <i class="fas fa-arrow-left"></i> Home
+        </a>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Page Header -->
+    <header>
+        Programmes Offered
+    </header>
+
+    <!-- Example Programme -->
+    <div class="program">
+        <img src="My pic.jpg" alt="General Science">
+        <div class="content">
+            <h3>General Science</h3>
+            <p>The General Science program offers a comprehensive exploration of the fundamental scientific disciplines, including biology, chemistry, physics, and mathematics...</p>
+        </div>
+    </div>
+
+    <!-- Business -->
+    <div class="program">
+        <img src="business.jpg" alt="Business">
+        <div class="content">
+            <h3>Business</h3>
+            <p>The Business program is designed to equip students with the necessary skills and knowledge to thrive in today's competitive business environment...</p>
+        </div>
+    </div>
+
+    <!-- General Arts -->
+    <div class="program">
+        <img src="general-arts.jpg" alt="General Arts">
+        <div class="content">
+            <h3>General Arts</h3>
+            <p>The General Arts program offers a diverse and intellectually stimulating curriculum designed to expand students' understanding of the human experience...</p>
+        </div>
+    </div>
+
+    <!-- Visual Arts -->
+    <div class="program">
+        <img src="visual-arts.jpg" alt="Visual Arts">
+        <div class="content">
+            <h3>Visual Arts</h3>
+            <p>The Visual Arts program provides students with a strong foundation in the creative process and visual expression...</p>
+        </div>
+    </div>
+
+    <!-- Home Economics -->
+    <div class="program">
+        <img src="home-economics.jpg" alt="Home Economics">
+        <div class="content">
+            <h3>Home Economics</h3>
+            <p>The Home Economics program offers students the opportunity to study various aspects of family and household management...</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Boase. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
