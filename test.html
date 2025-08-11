@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navbar</title>
+<style>
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+nav {
+  background-color: #333;
+  color: white;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#hamburger {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#navbar-links li {
+  position: relative;
+}
+#navbar-links a {
+  display: block;
+  padding: 0.75em 1em;
+  color: white;
+  text-decoration: none;
+}
+#navbar-links a:hover {
+  background-color: #444;
+}
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  z-index: 999;
+  flex-direction: column;
+}
+.dropdown-content a {
+  padding: 0.75em 1em;
+}
+.nav-item:hover .dropdown-content {
+  display: flex;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  #hamburger {
+    display: block;
+  }
+  #navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+  #navbar-links.active {
+    display: flex;
+  }
+  .dropdown-content {
+    position: static;
+    background-color: #222;
+  }
+  /* Disable hover dropdowns on mobile */
+  .nav-item:hover .dropdown-content {
+    display: none;
+  }
+  .nav-item.active .dropdown-content {
+    display: flex;
+  }
+  .dropdown-toggle {
+    cursor: pointer;
+    margin-left: 5px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MySite</div>
+  <div id="hamburger">&#9776;</div>
+  <ul id="navbar-links">
+    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="#" class="nav-link">Services <span class="dropdown-toggle">&#9662;</span></a>
+      <ul class="dropdown-content">
+        <li><a href="#service1">Service 1</a></li>
+        <li><a href="#service2">Service 2</a></li>
+        <li><a href="#service3">Service 3</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="#" class="nav-link">Products <span class="dropdown-toggle">&#9662;</span></a>
+      <ul class="dropdown-content">
+        <li><a href="#prod1">Product 1</a></li>
+        <li><a href="#prod2">Product 2</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navbarLinks = document.getElementById('navbar-links');
+
+// Toggle entire menu
+hamburger.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active');
+});
+
+// Toggle submenus on mobile
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const parentItem = toggle.closest('.nav-item');
+    parentItem.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
