@@ -815,47 +815,42 @@
   </footer>
 
   <script>
-    // Hamburger toggle for mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const navbarLinks = document.getElementById('navbar-links');
+  const hamburger = document.getElementById('hamburger');
+  const navbarLinks = document.getElementById('navbar-links');
 
-    hamburger.addEventListener('click', () => {
-      navbarLinks.classList.toggle('active');
-    });
+  hamburger.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+  });
 
-    // Smooth scrolling and active link toggling
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        // Remove active class from all links
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
+  // Smooth scrolling and active link toggling
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
 
-        // If href is a hash, smooth scroll
-        const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
-          e.preventDefault();
-          const targetSection = document.querySelector(targetId);
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-            // Close mobile menu if open
-            if(navbarLinks.classList.contains('active')) {
-              navbarLinks.classList.remove('active');
-            }
-          }
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+          navbarLinks.classList.remove('active');
         }
+      }
+    });
+  });
+
+  // Mobile dropdown toggle
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parentItem = this.parentElement;
+        parentItem.classList.toggle('active');
       });
     });
+  }
+</script>
 
-    // ====== ADDED FOR SMOOTH MOBILE DROPDOWN ======
-    if (window.innerWidth <= 768) {
-      document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault(); // prevent default anchor behavior
-          const parent = link.parentElement;
-          parent.classList.toggle('active');
-        });
-      });
-    }
-  </script>
 </body>
 </html>
